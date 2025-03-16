@@ -1,0 +1,14 @@
+{
+    "name": "AtCoder Crouch Start",
+    "description": "AtCoderの開始前のコンテストページにA問題へのリンクを追加します",
+    "version": "0.2",
+    "credits": {
+        "author": "xe-o",
+        "link": "https://github.com/xe-o/atcoder-userscripts/",
+        "license": "MIT"
+    },
+    "userscripts": {
+        "js": "userscript.js",
+        "matches": ["https://atcoder.jp/contests/*"]
+    }
+}

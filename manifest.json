@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A project for AtCoder programming contests",
     "manifest_version": 3,
+    "options_page": "src/settings/index.html",
     "action": {
         "default_popup": "src/popup.html",
         "default_icon": {
@@ -12,7 +13,8 @@
         }
     },
     "background": {
-        "service_worker": "src/background.js"
+        "service_worker": "src/background.js",
+        "type": "module"
     },
     "permissions": [
         "activeTab",
@@ -20,18 +22,17 @@
     ],
     "content_scripts": [
         {
-            "matches": ["*://atcoder.jp/*"],
-            "js": ["src/content.js"],
-            "type": "module"
+            "matches": ["*://*.atcoder.jp/*"],
+            "js": ["src/content.js"]
         }
     ],
     "web_accessible_resources": [
         {
             "resources": [
                 "userscripts/*",
-                "/src/*"
+                "src/*"
             ],
-            "matches": ["*://atcoder.jp/*"]
+            "matches": ["*://*.atcoder.jp/*"]
         }
     ],
     "icons": {
