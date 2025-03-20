@@ -1,0 +1,14 @@
+{
+    "name": "Atcoder Easy Jump",
+    "description": "Atcoderから外部のリンクへ素早くジャンプしたい方へ",
+    "version": "2024-04-07",
+    "credits": {
+        "author": "KAM1KAZE",
+        "link": "https://greasyfork.org/ja/users/1207265-kam1kaze",
+        "license": "MIT"
+    },
+    "userscripts": {
+        "js": "userscript.js",
+        "matches": ["https://atcoder.jp/*"]
+    }
+}

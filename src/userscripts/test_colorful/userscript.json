@@ -1,0 +1,14 @@
+{
+    "name": "test",
+    "description": "参加登録画面で、Rated・Unratedに色付けします",
+    "version": "1.0",
+    "credits": {
+        "author": "takechi",
+        "link": "https://atcoder.jp/users/taketii",
+        "license": "MIT"
+    },
+    "userscripts": {
+        "js": "test_colorful.js",
+        "matches": ["https://atcoder.jp/contests/*"]
+    }
+}
