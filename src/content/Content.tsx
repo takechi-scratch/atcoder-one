@@ -1,5 +1,9 @@
 import browser from "webextension-polyfill";
 
+import "@mantine/notifications/styles.css";
+import "@mantine/core/styles.css";
+import { notifications } from "@mantine/notifications";
+
 import { getEnabledSetting } from "../lib/settings.js";
 
 export default async function () {
@@ -7,21 +11,15 @@ export default async function () {
     const storedVersion = (await browser.storage.local.get("version")).version;
 
     if (storedVersion !== now_version) {
+        console.log("新しいバージョンが見つかりました");
+        console.log(`現在のバージョン: ${now_version}`);
+        console.log(`保存されているバージョン: ${storedVersion}`);
         browser.storage.local.set({ version: now_version });
         // 左下に通知を表示
-        const notification = document.createElement("div");
-        notification.style.position = "fixed";
-        notification.style.left = "10px";
-        notification.style.bottom = "10px";
-        notification.style.padding = "10px";
-        notification.style.backgroundColor = "#2298f2da";
-        notification.style.color = "white";
-        notification.style.zIndex = "1000";
-        notification.textContent = `atcoder-oneがver.${now_version}にアップデートされました`;
-        document.body.appendChild(notification);
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 3000);
+        notifications.show({
+            title: "更新完了",
+            message: `atcoder-oneがver.${now_version}にアップデートされました`,
+        });
     }
 
     const enabled_userscripts = await getEnabledSetting();

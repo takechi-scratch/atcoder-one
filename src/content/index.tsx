@@ -1,12 +1,16 @@
 import "webextension-polyfill";
 import "construct-style-sheets-polyfill";
 import { debounce } from "lodash-es";
+import React from "react";
+import { createRoot } from "react-dom/client";
+
+// CSSは読み込み先でimport
+import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
+
 import { twind, config, cssom, observe, stringify } from "./twind";
 import { proxyStore } from "../app/proxyStore";
 import Content from "./Content";
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
 
 proxyStore.ready().then(() => {
     const contentRoot = document.createElement("div");
@@ -45,7 +49,9 @@ proxyStore.ready().then(() => {
 
     createRoot(shadowWrapper).render(
         <React.StrictMode>
-            <p>Hello, World!</p>
+            <MantineProvider>
+                <Notifications />
+            </MantineProvider>
         </React.StrictMode>
     );
 
