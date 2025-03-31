@@ -4,7 +4,16 @@ import browser from "webextension-polyfill";
 interface Manifest {
     name: string;
     version: string;
-    description?: string;
+    description: string;
+    credits: {
+        author?: string;
+        link?: string;
+        license?: string;
+    };
+    userscripts: {
+        js: string;
+        matches: string[];
+    };
     [key: string]: unknown;
 }
 
